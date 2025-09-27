@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Futuristic Glassmorphism Design System */
+@layer base {
+  :root {
+    /* Base Colors - Deep Space Theme (Dark Mode) */
+    --background: 220 30% 5%;
+    --foreground: 210 100% 95%;
+
+    /* Glass Panel System */
+    --glass: 210 100% 95% / 0.05;
+    --glass-border: 210 100% 95% / 0.1;
+    --glass-hover: 210 100% 95% / 0.1;
+
+    /* Neon Color Palette */
+    --neon-cyan: 180 100% 50%;
+    --neon-purple: 280 100% 60%;
+    --neon-pink: 320 100% 60%;
+    --neon-blue: 220 100% 60%;
+
+    /* Primary System - Cyan Focus */
+    --primary: 180 100% 50%;
+    --primary-foreground: 220 30% 5%;
+
+    /* Secondary System - Purple Accent */
+    --secondary: 280 100% 60%;
+    --secondary-foreground: 210 100% 95%;
+
+    /* Card System - Glass Panels */
+    --card: 220 30% 8%;
+    --card-foreground: 210 100% 95%;
+
+    /* Muted System */
+    --muted: 220 15% 15%;
+    --muted-foreground: 210 20% 70%;
+
+    /* Accent System - Pink Highlights */
+    --accent: 320 100% 60%;
+    --accent-foreground: 220 30% 5%;
+
+    /* Input System */
+    --input: 220 30% 10%;
+    --border: 210 100% 95% / 0.1;
+    --ring: 180 100% 50%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(180 100% 50%), hsl(280 100% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(280 100% 60%), hsl(320 100% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 30% 5%) 0%, hsl(220 50% 8%) 50%, hsl(180 30% 10%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(210 100% 95% / 0.1), hsl(180 100% 50% / 0.1));
+
+    /* Shadows & Glows */
+    --glow-cyan: 0 0 20px hsl(180 100% 50% / 0.5);
+    --glow-purple: 0 0 20px hsl(280 100% 60% / 0.5);
+    --glow-pink: 0 0 20px hsl(320 100% 60% / 0.5);
+    --shadow-glass: 0 8px 32px hsl(220 30% 5% / 0.3);
+
+    --radius: 1rem;
+
+    /* Animation Variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  /* Light Mode Theme */
+  .light {
+    /* Base Colors - Light Crystal Theme */
+    --background: 220 20% 95%;
+    --foreground: 220 30% 10%;
+
+    /* Glass Panel System - Inverted */
+    --glass: 220 30% 10% / 0.08;
+    --glass-border: 220 30% 10% / 0.15;
+    --glass-hover: 220 30% 10% / 0.12;
+
+    /* Neon colors remain vibrant in light mode */
+    --neon-cyan: 180 80% 45%;
+    --neon-purple: 280 70% 50%;
+    --neon-pink: 320 80% 55%;
+    --neon-blue: 220 80% 50%;
+
+    /* Primary System - Adjusted for light mode */
+    --primary: 180 80% 45%;
+    --primary-foreground: 220 20% 95%;
+
+    /* Secondary System - Purple remains bold */
+    --secondary: 280 70% 50%;
+    --secondary-foreground: 220 20% 95%;
+
+    /* Card System - Light glass panels */
+    --card: 220 15% 92%;
+    --card-foreground: 220 30% 10%;
+
+    /* Muted System - Lighter tones */
+    --muted: 220 10% 85%;
+    --muted-foreground: 220 15% 40%;
+
+    /* Accent System - Pink highlights */
+    --accent: 320 80% 55%;
+    --accent-foreground: 220 20% 95%;
+
+    /* Input System */
+    --input: 220 15% 88%;
+    --border: 220 30% 10% / 0.15;
+    --ring: 180 80% 45%;
+
+    /* Light mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(180 80% 45%), hsl(280 70% 50%));
+    --gradient-secondary: linear-gradient(135deg, hsl(280 70% 50%), hsl(320 80% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 20% 95%) 0%, hsl(220 25% 92%) 50%, hsl(180 15% 88%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(220 30% 10% / 0.1), hsl(180 80% 45% / 0.1));
+
+    /* Light mode glows - softer */
+    --glow-cyan: 0 0 15px hsl(180 80% 45% / 0.4);
+    --glow-purple: 0 0 15px hsl(280 70% 50% / 0.4);
+    --glow-pink: 0 0 15px hsl(320 80% 55% / 0.4);
+    --shadow-glass: 0 8px 32px hsl(220 30% 10% / 0.15);
+  }
+
+  /* Dark mode specific overrides */
+  .dark {
+    --background: 220 30% 3%;
+    --glass: 210 100% 95% / 0.03;
+    --card: 220 30% 6%;
+    --muted: 220 15% 10%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border transition-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    background: var(--gradient-hero);
+    background-attachment: fixed;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(var(--neon-cyan)), hsl(var(--neon-purple)));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, hsl(var(--neon-purple)), hsl(var(--neon-pink)));
+  }
+}
+
+@layer components {
+  /* Glass Panel Base */
+  .glass-panel {
+    @apply relative backdrop-blur-lg border rounded-2xl;
+    border-color: hsl(var(--glass-border));
+    background: var(--gradient-glass);
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-panel::before {
+    content: '';
+    @apply absolute inset-0 rounded-2xl;
+    background: var(--gradient-glass);
+    opacity: 0.1;
+    z-index: -1;
+  }
+
+  /* Neon Glow Effects */
+  .glow-cyan {
+    box-shadow: var(--glow-cyan);
+  }
+
+  .glow-purple {
+    box-shadow: var(--glow-purple);
+  }
+
+  .glow-pink {
+    box-shadow: var(--glow-pink);
+  }
+
+  /* Interactive Glass Elements */
+  .glass-hover {
+    @apply glass-panel transition-all duration-300 hover:scale-105;
+  }
+
+  .glass-hover:hover {
+    background: var(--gradient-glass);
+    opacity: 1.2;
+    box-shadow: var(--glow-cyan), var(--shadow-glass);
+  }
+
+  /* Neon Border Animation */
+  .neon-border {
+    @apply relative overflow-hidden rounded-2xl;
+  }
+
+  .neon-border::before {
+    content: '';
+    @apply absolute inset-0;
+    background: conic-gradient(
+      hsl(var(--neon-cyan)),
+      hsl(var(--neon-purple)),
+      hsl(var(--neon-pink)),
+      hsl(var(--neon-cyan))
+    );
+    border-radius: inherit;
+    animation: spin 3s linear infinite;
+    z-index: -1;
+  }
+
+  .neon-border::after {
+    content: '';
+    @apply absolute inset-[2px] rounded-2xl;
+    background: hsl(var(--background));
+    z-index: -1;
+  }
+
+  /* Text Glow Effect */
+  .text-glow {
+    text-shadow: 0 0 10px currentColor;
+  }
+
+  .text-neon {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Floating Animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .float-delayed {
+    animation: float 6s ease-in-out infinite 2s;
+  }
+
+  /* Pulse Glow */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-glow {
+    transition: var(--transition-glow);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px hsl(var(--primary) / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.8), 0 0 30px hsl(var(--primary) / 0.4);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
