@@ -6,7 +6,7 @@ export const About = () => {
       institution: "Panimalar Engineering College, Chennai",
       degree: "B.Tech Information Technology",
       period: "2023 – 2027",
-      grade: "CGPA: 8.38/10 (Out of 3rd Sem)",
+      grade: "CGPA: 8.38/10 (Out of 5th Sem)",
       icon: GraduationCap,
     },
     {
